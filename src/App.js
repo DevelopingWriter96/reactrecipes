@@ -36,16 +36,16 @@ function RecipeList() {
     }}>Delete</button></li>;
   })
 
-  // function editItem(index) {
-  //   const edited = recipes.map((name, category, i) => {
-  //     if (i === index ) {
-  //       return {Name: name, Category: category};
-  //     } else {
-  //       return console.log("move along!")
-  //     }
-  //   });
-  //   setRecipes(edited)
-  // }
+  function editItem(index) {
+    const edited = recipes.map((name, category, i) => {
+      if (i === index ) {
+        return {Name: name, Category: category};
+      } else {
+        return console.log("move along!")
+      }
+    });
+    setRecipes(edited)
+  }
 
   return (
     <>
