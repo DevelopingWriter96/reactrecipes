@@ -14,7 +14,7 @@ function RecipeList() {
 
   const [name, setName ] = useState("")
   const [type, setType ] = useState("")
-  const [ favorites, setFavorites ] = useState([])
+  const [favorites, setFavorites] = useState([])
 
   function toggleFavorite(recipe, type) {
     if (favorites.find(favoriteRecipe => favoriteRecipe.name === recipe)){
@@ -29,7 +29,9 @@ function RecipeList() {
   const recipeList = recipes.map((recipe, i) => {
     return <li key = {i}>{recipe.Name} - {recipe.Category} <button onClick = {() => {
       toggleFavorite(recipe.Name, recipe.Category)
-    }}>Favorite</button>  <button onClick = {() => {
+    }}>Favorite</button><button onClick = {() => {
+      editItem(i)
+    }}>Edit</button><button onClick = {() => {
       setRecipes(
         recipes.filter(a => a.Name !== recipe.Name)
       )
@@ -37,11 +39,11 @@ function RecipeList() {
   })
 
   function editItem(index) {
-    const edited = recipes.map((name, category, i) => {
-      if (i === index ) {
-        return {Name: name, Category: category};
+    const edited = recipes.map((recipe, i) => {
+      if (i === index) {
+        return {Name: name, Category: type};
       } else {
-        return console.log("move along!")
+        return recipe
       }
     });
     setRecipes(edited)
